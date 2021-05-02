@@ -10,6 +10,7 @@ app_icon = "octicon octicon-file-directory"
 app_color = "blue"
 app_email = "gregor.mogeritsch@gmail.com"
 app_license = "MIT"
+app_logo_url = "/assets/cpce/images/CP_Logo-web.png"
 
 # Includes in <head>
 # ------------------
@@ -119,6 +120,15 @@ app_include_css = "/assets/cpce/css/cpce.css"
 # 		"cpce.tasks.monthly"
 # 	]
 # }
+
+
+website_context = {
+	"favicon": 	"/assets/cpce/images/favicon-32x32.png",
+	"splash_image": "/assets/cpce/images/erpnext-logo.png"
+}
+
+
+
 
 # Testing
 # -------
