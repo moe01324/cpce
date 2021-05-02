@@ -1,4 +1,19 @@
 [data-page-route="Quotation"] [data-fieldname="items"] [data-fieldname="item_code"] .awesomplete ul 
 {
-    width: 700px;
+    width: 500px;
+}
+
+[data-page-route="Quotation"] [data-fieldname="optional items"] [data-fieldname="item_code"] .awesomplete ul 
+{
+    width: 500px;
+}
+
+[data-page-route="Sales Order"] [data-fieldname="items"] [data-fieldname="item_code"] .awesomplete ul 
+{
+    width: 500px;
+}
+
+[data-page-route="Purchase Order"] [data-fieldname="items"] [data-fieldname="item_code"] .awesomplete ul 
+{
+    width: 500px;
 }
