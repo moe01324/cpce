@@ -155,7 +155,7 @@ website_context = {
 
 jenv = {
     "methods": [
-        "custom_doc_number_format:cpce.utils.cpce_number_format"
+        "cpce_number_format:cpce.utils.cpce_number_format"
     ]
 }
 
