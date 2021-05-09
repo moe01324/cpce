@@ -17,7 +17,7 @@ app_logo_url = "/assets/cpce/images/CP_Logo-web.png"
 
 # include js, css files in header of desk.html
 app_include_css = "/assets/cpce/css/cpce.css"
-# app_include_js = "/assets/cpce/js/cpce.js"
+app_include_js = "/assets/cpce/js/number_format.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/cpce/css/cpce.css"

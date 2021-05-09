@@ -1,0 +1,109 @@
+.col-1, .col-xs-1 {
+    max-width: 11%;
+}
+
+.col-2, .col-xs-2 {
+    max-width: 25%;
+}
+
+.sortable-handle {
+flex-basis: 6%;
+}
+
+
+
+[data-fieldname="items"] [data-fieldname="item_code"] .awesomplete ul 
+{
+    width: 700px;
+}
+ [data-fieldname="items"] [data-fieldname="item_code"]
+{
+    flex-basis: 24%;
+}
+ [data-fieldname="items"] [data-fieldname="set_parent"]
+{
+    flex-basis: 4%;
+}
+ [data-fieldname="items"] [data-fieldname="set_child"]
+{
+    flex-basis: 4%;
+}
+[data-fieldname="items"] [data-fieldname="qty"]
+{
+    flex-basis: 4%;
+}
+ [data-fieldname="items"] [data-fieldname="ek_project"]
+{
+    flex-basis: 13%;
+
+}
+[data-fieldname="items"] [data-fieldname="ek_project_total"]
+{
+    flex-basis: 13%;
+
+}
+[data-fieldname="items"] [data-fieldname="rate"]
+{
+    flex-basis: 13%;
+
+;
+}
+[data-fieldname="items"] [data-fieldname="amount"]
+{
+    flex-basis: 13%;
+
+
+} 
+[data-fieldname="items"] [data-fieldname="actual_margin"]
+{
+    flex-basis: 6%;
+}
+
+
+[data-fieldname="optional_items"] [data-fieldname="item_code"] .awesomplete ul 
+{
+    width: 700px;
+}
+ [data-fieldname="optional_items"] [data-fieldname="item_code"]
+{
+    flex-basis: 24%;
+}
+ [data-fieldname="optional_items"] [data-fieldname="set_parent"]
+{
+    flex-basis: 4%;
+}
+ [data-fieldname="optional_items"] [data-fieldname="set_child"]
+{
+    flex-basis: 4%;
+}
+[data-fieldname="optional_items"] [data-fieldname="qty"]
+{
+    flex-basis: 4%;
+}
+ [data-fieldname="optional_items"] [data-fieldname="ek_project"]
+{
+    flex-basis: 13%;
+
+}
+[data-fieldname="optional_items"] [data-fieldname="ek_project_total"]
+{
+    flex-basis: 13%;
+
+}
+[data-fieldname="optional_items"] [data-fieldname="rate"]
+{
+    flex-basis: 13%;
+
+;
+}
+[data-fieldname="optional_items"] [data-fieldname="amount"]
+{
+    flex-basis: 13%;
+
+
+} 
+[data-fieldname="optional_items"] [data-fieldname="actual_margin"]
+{
+    flex-basis: 6%;
+}
+
