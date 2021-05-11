@@ -8,11 +8,15 @@ from frappe.utils import cint, get_number_format_info, flt, cstr
 from six import iteritems, text_type, string_types, integer_types
 
 
-def cpce_number_format(doc, amount, precision=None, currency=None):
+def cpce_number_format(doc, amount, precision=None, currency=None, noCurrency=None, hideTrailingZero=None):
 	"""
 	Convert to string with commas for thousands, millions etc
 	"""
 	number_format = doc.get("number_format") or "#,###.##"
+	if noCurrency and number_format == "#.###":
+		number_format = "#.###,##"
+	if noCurrency and number_format == "#,###":
+		number_format = "#,###.##"
 	if precision is None:
 		precision = cint(frappe.db.get_default('currency_precision')) or None
 
@@ -74,6 +78,10 @@ def cpce_number_format(doc, amount, precision=None, currency=None):
 	amount = comma_str.join(parts) + ((precision and decimal_str) and (decimal_str + decimals) or "")
 	if amount != '0':
 		amount = minus + amount
+
+	if hideTrailingZero:
+		amount = amount.strip("0").rstrip('.').rstrip(',')
+		
 
 	if currency and frappe.defaults.get_global_default("hide_currency_symbol") != "Yes":
 		symbol = frappe.db.get_value("Currency", currency, "symbol", cache=True) or currency
