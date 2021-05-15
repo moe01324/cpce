@@ -99,6 +99,12 @@ app_include_css = "/assets/cpce/css/cpce.css"
 #	}
 # }
 
+doc_events = {
+	"File": {
+		"validate": "cpce.utils.check_file_format"
+	}
+}
+
 # Scheduled Tasks
 # ---------------
 

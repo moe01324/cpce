@@ -4,6 +4,7 @@
 from __future__ import unicode_literals
 
 import frappe
+from frappe import _, throw
 from frappe.utils import cint, get_number_format_info, flt, cstr
 from six import iteritems, text_type, string_types, integer_types
 
@@ -88,3 +89,8 @@ def cpce_number_format(doc, amount, precision=None, currency=None, noCurrency=No
 		amount = symbol + " " + amount
 
 	return amount
+
+def check_file_format(file, method):
+	if file.file_name.lower().endswith(".eml"):
+		frappe.msgprint(_("Upload of *.eml files not allowed.").format(), alert=True)
+		frappe.throw(_("File extension not Allowed"))
