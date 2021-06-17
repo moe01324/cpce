@@ -31,7 +31,7 @@ erpnext.taxes_and_totals = erpnext.payments.extend({
 			item.discount_percentage = 100 * flt(item.discount_amount) / flt(item.rate_with_margin);
 		}
 
-		frappe.model.set_value(item.doctype, item.name, "rate", item_rate);
+		//frappe.model.set_value(item.doctype, item.name, "rate", item_rate);
 	},
 
 	calculate_taxes_and_totals: function(update_paid_amount) {
@@ -108,10 +108,14 @@ erpnext.taxes_and_totals = erpnext.payments.extend({
 				frappe.model.round_floats_in(item);
 				item.net_rate = item.rate;
 
-				if ((!item.qty) && me.frm.doc.is_return) {
-					item.amount = flt(item.rate * -1, precision("amount", item));
+				if(item.doctype === "Purchase Order Item") {
+					item.amount = flt(item.ek_project * item.qty, precision("amount", item));
 				} else {
-					item.amount = flt(item.rate * item.qty, precision("amount", item));
+					if ((!item.qty) && me.frm.doc.is_return) {
+						item.amount = flt(item.rate * -1, precision("amount", item));
+					} else {
+						item.amount = flt(item.rate * item.qty, precision("amount", item));
+					}
 				}
 
 				item.net_amount = item.amount;
@@ -120,6 +124,28 @@ erpnext.taxes_and_totals = erpnext.payments.extend({
 
 				me.set_in_company_currency(item, ["price_list_rate", "rate", "amount", "net_rate", "net_amount"]);
 			});
+
+			$.each(this.frm.doc["optional_items"] || [], function(i, item) {
+				frappe.model.round_floats_in(item);
+				item.net_rate = item.rate;
+
+				if(item.doctype === "Purchase Order Item") {
+					item.amount = flt(item.ek_project * item.qty, precision("amount", item));
+				} else {
+					if ((!item.qty) && me.frm.doc.is_return) {
+						item.amount = flt(item.rate * -1, precision("amount", item));
+					} else {
+						item.amount = flt(item.rate * item.qty, precision("amount", item));
+					}
+				}
+
+				item.net_amount = item.amount;
+				item.item_tax_amount = 0.0;
+				item.total_weight = flt(item.weight_per_unit * item.stock_qty);
+
+				me.set_in_company_currency(item, ["price_list_rate", "rate", "amount", "net_rate", "net_amount"]);
+			});
+
 		}
 	},
 

@@ -6,11 +6,11 @@
 frappe.ui.form.on("Sales Order", {
 	setup: function(frm) {
 		frm.custom_make_buttons = {
+			'Purchase Order': 'Purchase Order',
 			'Delivery Note': 'Delivery Note',
 			'Pick List': 'Pick List',
 			'Sales Invoice': 'Sales Invoice',
 			'Material Request': 'Material Request',
-			'Purchase Order': 'Purchase Order',
 			'Project': 'Project',
 			'Payment Entry': "Payment",
 			'Work Order': "Work Order"
@@ -147,6 +147,11 @@ erpnext.selling.SalesOrderController = erpnext.selling.SellingController.extend(
 						}
 					}
 
+					// Make Purchase Order
+					if (!this.frm.doc.is_internal_customer) {
+						this.frm.add_custom_button(__('Purchase Order'), () => this.make_purchase_order(), __('Create'));
+					}
+
 					this.frm.add_custom_button(__('Pick List'), () => this.create_pick_list(), __('Create'));
 
 					const order_is_a_sale = ["Sales", "Shopping Cart"].indexOf(doc.order_type) !== -1;
@@ -171,10 +176,6 @@ erpnext.selling.SalesOrderController = erpnext.selling.SellingController.extend(
 						this.frm.add_custom_button(__('Request for Raw Materials'), () => this.make_raw_material_request(), __('Create'));
 					}
 
-					// Make Purchase Order
-					if (!this.frm.doc.is_internal_customer) {
-						this.frm.add_custom_button(__('Purchase Order'), () => this.make_purchase_order(), __('Create'));
-					}
 
 					// maintenance
 					if(flt(doc.per_delivered, 2) < 100 && (order_is_maintenance || order_is_a_custom_sale)) {
@@ -568,10 +569,11 @@ erpnext.selling.SalesOrderController = erpnext.selling.SellingController.extend(
 			fields: [
 				{
 					"fieldtype": "Check",
-					"label": __("Against Default Supplier"),
-					"fieldname": "against_default_supplier",
+					"label": __("CPCE Purchase Order"),
+					"fieldname": "cpce_po",
 					"default": 0
 				},
+
 				{
 					fieldname: 'items_for_po', fieldtype: 'Table', label: 'Select Items',
 					fields: [
@@ -624,7 +626,7 @@ erpnext.selling.SalesOrderController = erpnext.selling.SellingController.extend(
 
 				dialog.hide();
 
-				var method = args.against_default_supplier ? "make_purchase_order_for_default_supplier" : "make_purchase_order"
+				var method = args.cpce_po ? "make_purchase_order_cpce" : "make_purchase_order"
 				return frappe.call({
 					method: "erpnext.selling.doctype.sales_order.sales_order." + method,
 					freeze: true,
