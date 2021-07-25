@@ -102,7 +102,12 @@ app_include_css = "/assets/cpce/css/cpce.css"
 doc_events = {
 	"File": {
 		"validate": "cpce.utils.check_file_format"
-	}
+	},
+    'Purchase Order': {
+        'on_submit': [
+            'erpnext.buying.doctype.purchase_order.purchase_order.make_sales_order_cpce_again'
+        ]
+    },
 }
 
 # Scheduled Tasks
