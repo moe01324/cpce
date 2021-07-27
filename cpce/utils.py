@@ -94,3 +94,6 @@ def check_file_format(file, method):
 	if file.file_name.lower().endswith(".eml"):
 		frappe.msgprint(_("Upload of *.eml files not allowed.").format(), alert=True)
 		frappe.throw(_("File extension not Allowed"))
+	if file.file_name.lower().endswith(".msg"):
+		frappe.msgprint(_("Upload of *.msg files not allowed.").format(), alert=True)
+		frappe.throw(_("File extension not Allowed"))
