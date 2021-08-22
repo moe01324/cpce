@@ -118,10 +118,11 @@ def merge_pdf_files(doctype, name, format=None, doc=None, no_letterhead=0, only_
 				pdf_files.append(file)
 			else:
 				html += "<div class='row'>\
-							<div class='col-xs-12 text-center'>\
-								<img src='{0}' style='width:100%'/>\
+							<div class='col-xs-12 text-center' style='page-break-after: always;'>\
+								<img src='{0}' style='width:80%'/>\
 							</div>\
 						</div>\
+						</br>\
 						".format(file.file_url)
 	pdf = get_pdf(html)
 	if not pdf_files and not only_file_name:
