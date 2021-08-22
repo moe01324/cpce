@@ -9,7 +9,7 @@ from six import iteritems, text_type, string_types, integer_types
 from frappe import _
 
 
-def custom_doc_number_format(doc, amount, precision=None, currency=None):
+def cpce_number_format(doc, amount, precision=None, currency=None):
 	"""
 	Convert to string with commas for thousands, millions etc
 	"""

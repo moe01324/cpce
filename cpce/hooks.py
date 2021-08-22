@@ -149,9 +149,9 @@ website_context = {
 # ------------------------------
 #
 override_whitelisted_methods = {
-	"frappe.utils.print_format.download_pdf": "moe01325_changes.utils.custom_print_format.download_pdf",
-	"frappe.utils.print_format.download_multi_pdf": "moe01325_changes.utils.custom_print_format.download_multi_pdf",
-	"frappe.www.printview.get_html_and_style": "moe01325_changes.www.custom_printview.get_html_and_style"
+	"frappe.utils.print_format.download_pdf": "cpce.utils.custom_print_format.download_pdf",
+	"frappe.utils.print_format.download_multi_pdf": "cpce.utils.custom_print_format.download_multi_pdf",
+	"frappe.www.printview.get_html_and_style": "cpce.www.custom_printview.get_html_and_style"
 }
 #
 # each overriding function accepts a `data` argument;
