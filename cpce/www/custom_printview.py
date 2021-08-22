@@ -182,7 +182,7 @@ def get_rendered_template(doc, name=None, print_format=None, meta=None,
 				print(frappe.utils.get_site_url(frappe.local.site))
 				html += "<div class='row'>\
 							<div class='col-xs-12 text-center'>\
-								<img src='{0}' style='width:100%'/>\
+								<img src='{0}' style='width:80%'/>\
 							</div>\
 						</div>\
 						".format(file.file_url)
