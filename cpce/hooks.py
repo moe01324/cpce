@@ -148,9 +148,11 @@ website_context = {
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "cpce.event.get_events"
-# }
+override_whitelisted_methods = {
+	"frappe.utils.print_format.download_pdf": "moe01325_changes.utils.custom_print_format.download_pdf",
+	"frappe.utils.print_format.download_multi_pdf": "moe01325_changes.utils.custom_print_format.download_multi_pdf",
+	"frappe.www.printview.get_html_and_style": "moe01325_changes.www.custom_printview.get_html_and_style"
+}
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
