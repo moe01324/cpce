@@ -10,6 +10,10 @@
 flex-basis: 6%;
 }
 
+.list-subject {
+    flex: 4;
+    justify-content: start;
+}
 
 
 [data-fieldname="items"] [data-fieldname="item_code"] .awesomplete ul 
